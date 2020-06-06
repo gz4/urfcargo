@@ -218,12 +218,13 @@
 			<div class="col-md-5 mb30">
 				<div class="about-text">
 
-					<h3>广东</h3>
+					<h3>广州</h3>
 					<p>广州市白云区远景路14号时代商务大厦C栋605B</p>
 
 					<ul class="withArrow">
 						<li><span class="fa fa-angle-right"></span> 区域经理：廖斌</li>
-						<li><span class="fa fa-angle-right"></span> 联系电话：<a href="tel:18802033937">188 0203 3937</a></li>
+						<li><span class="fa fa-angle-right"></span> 直线电话：<a href="tel:02031217149">020-31217149</a></li>
+						<li><span class="fa fa-angle-right"></span> 联系手机：<a href="tel:18802033937">188 0203 3937</a></li>
 						<li><span class="fa fa-angle-right"></span> 电子邮件：<a href="mailto:jeffery@urfreight.com.cn">jeffery@urfreight.com.cn</a></li>
 					</ul>
 				</div>
@@ -239,12 +240,34 @@
 			<div class="col-md-5 mb30">
 				<div class="about-text">
 
+					<h3>深圳</h3>
+					<p>深圳市龙岗区坂田街道大发埔社区里浦街7号德众电商产业园1栋101-109</p>
+
+					<ul class="withArrow">
+						<li><span class="fa fa-angle-right"></span> 区域经理：廖斌</li>
+						<li><span class="fa fa-angle-right"></span> 联系手机：<a href="tel:18802033937">188 0203 3937</a></li>
+						<li><span class="fa fa-angle-right"></span> 电子邮件：<a href="mailto:jeffery@urfreight.com.cn">jeffery@urfreight.com.cn</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-md-7 mb30">
+				<div class="about-image">
+					<div style="height:280px;border:#ccc;" id="map_sz"></div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-5 mb30">
+				<div class="about-text">
+
 					<h3>上海</h3>
 					<p>上海市浦东新区川沙路5278号2栋1楼110室</p>
 
 					<ul class="withArrow">
 						<li><span class="fa fa-angle-right"></span> 区域经理：罗锋</li>
-						<li><span class="fa fa-angle-right"></span> 联系电话：<a href="tel:13802990597">138 0299 0597</a></li>
+						<li><span class="fa fa-angle-right"></span> 直线电话：<a href="tel:02031215441">020-31215441</a></li>
+						<li><span class="fa fa-angle-right"></span> 联系手机：<a href="tel:13802990597">138 0299 0597</a></li>
 						<li><span class="fa fa-angle-right"></span> 电子邮件：<a href="mailto:johnny@urfreight.com.cn">johnny@urfreight.com.cn</a></li>
 					</ul>
 				</div>
@@ -255,6 +278,7 @@
 				</div>
 			</div>
 		</div>
+
 	</div>
 </section>
 
@@ -349,6 +373,32 @@ map_gz();
 function map_gz(){
 	var map = new BMap.Map("map_gz");
 	var point = new BMap.Point(113.25994,23.177895);
+	map.centerAndZoom(point, 18);
+	var marker = new BMap.Marker(point);  // 创建标注
+	map.addOverlay(marker);               // 将标注添加到地图中
+	marker.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画
+	var top_left_control = new BMap.ScaleControl({anchor: BMAP_ANCHOR_TOP_LEFT});// 左上角，添加比例尺
+	var top_left_navigation = new BMap.NavigationControl();  //左上角，添加默认缩放平移控件
+	map.enableScrollWheelZoom();   //启用滚轮放大缩小，默认禁用
+	map.enableContinuousZoom();    //启用地图惯性拖拽，默认禁用
+	//添加控件和比例尺
+	map.addControl(top_left_control);
+	map.addControl(top_left_navigation);
+	// 百度地图API功能
+	var mapType1 = new BMap.MapTypeControl({mapTypes: [BMAP_NORMAL_MAP,BMAP_HYBRID_MAP]});
+	var overView = new BMap.OverviewMapControl();
+	var overViewOpen = new BMap.OverviewMapControl({isOpen:true, anchor: BMAP_ANCHOR_BOTTOM_RIGHT});
+	//添加地图类型和缩略图
+	map.addControl(mapType1);          //2D图，卫星图
+	map.addControl(overView);          //添加默认缩略地图控件
+	map.addControl(overViewOpen);      //右下角，打开
+	var infoWindow = new BMap.InfoWindow();  // 创建信息窗口对象
+}
+
+map_sz();
+function map_sz(){
+	var map = new BMap.Map("map_sz");
+	var point = new BMap.Point(114.066305,22.634789);
 	map.centerAndZoom(point, 18);
 	var marker = new BMap.Marker(point);  // 创建标注
 	map.addOverlay(marker);               // 将标注添加到地图中
