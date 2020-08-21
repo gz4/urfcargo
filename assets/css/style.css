@@ -16,6 +16,15 @@ a:active {
 .mb30{
 	margin-bottom: 30px;
 }
+.footer-right {
+	font-size: 12px;
+}
+@media (min-width: 979px) {
+	.footer-right {
+		text-align: right;
+	}
+}
+
 
 h1,h2{
 	font-weight: 600;
